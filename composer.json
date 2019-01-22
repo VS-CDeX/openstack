@@ -1,5 +1,5 @@
 {
-    "name": "php-opencloud/openstack",
+    "name": "vs-cdex/openstack",
     "description": "PHP SDK for OpenStack APIs. Supports BlockStorage, Compute, Identity, Images, Networking and Metric Gnocchi",
     "license": "Apache-2.0",
     "keywords": [
@@ -8,6 +8,7 @@
         "api",
         "sdk"
     ],
+    "homepage": "https://github.com/vs-cdex/openstack",
     "authors": [
         {
             "name": "Jamie Hannaford",
