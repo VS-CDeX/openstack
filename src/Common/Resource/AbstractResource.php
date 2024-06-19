@@ -55,7 +55,7 @@ abstract class AbstractResource implements ResourceInterface, Serializable
     /**
      * Populates the current resource from a data array.
      *
-     * @return mixed|void
+     * @return self
      */
     public function populateFromArray(array $array)
     {
@@ -113,6 +113,7 @@ abstract class AbstractResource implements ResourceInterface, Serializable
 
     /**
      * @template T
+     *
      * @param class-string<T> $class
      *
      * @return T

@@ -332,6 +332,30 @@ class Api extends AbstractApi
         ];
     }
 
+    public function resumeServer(): array
+    {
+        return [
+            'method' => 'POST',
+            'path'   => 'servers/{id}/action',
+            'params' => [
+                'id'     => $this->params->urlId('server'),
+                'resume' => $this->params->nullAction(),
+            ],
+        ];
+    }
+
+    public function suspendServer(): array
+    {
+        return [
+            'method' => 'POST',
+            'path'   => 'servers/{id}/action',
+            'params' => [
+                'id'      => $this->params->urlId('server'),
+                'suspend' => $this->params->nullAction(),
+            ],
+        ];
+    }
+
     public function rebuildServer(): array
     {
         return [
@@ -460,8 +484,8 @@ class Api extends AbstractApi
             'path'    => 'servers/{id}/remote-consoles',
             'jsonKey' => 'remote_console',
             'params'  => [
-                'id'   => $this->params->urlId('server'),
-                'type' => $this->params->consoleType(),
+                'id'       => $this->params->urlId('server'),
+                'type'     => $this->params->consoleType(),
                 'protocol' => $this->params->consoleProtocol(),
             ],
         ];
