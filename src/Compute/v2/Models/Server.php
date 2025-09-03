@@ -95,6 +95,8 @@ class Server extends OperatorResource implements Creatable, Updateable, Deletabl
     /** @var string */
     public $keyName;
 
+    public ?string $host = null;
+
     protected $resourceKey  = 'server';
     protected $resourcesKey = 'servers';
     protected $markerKey    = 'id';
@@ -111,6 +113,7 @@ class Server extends OperatorResource implements Creatable, Updateable, Deletabl
         'OS-EXT-STS:power_state'              => 'powerState',
         'OS-EXT-STS:vm_state'                 => 'vmState',
         'OS-EXT-SRV-ATTR:hypervisor_hostname' => 'hypervisorHostname',
+        'OS-EXT-SRV-ATTR:host'                => 'host',
     ];
 
     protected function getAliases(): array
