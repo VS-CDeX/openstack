@@ -1,0 +1,6 @@
+HTTP/1.1 202 Accepted
+Content-Type: application/json
+
+{
+    "uuid": "64281d85-e9a3-4c54-8d30-9ee72a596d8a"
+}

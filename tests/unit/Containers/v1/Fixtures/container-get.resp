@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "uuid": "container-uuid",
+    "name": "test-container",
+    "image": "ubuntu",
+    "status": "Running",
+    "task_state": null,
+    "user_id": "user-id",
+    "project_id": "project-id",
+    "cpu": 1,
+    "memory": 512,
+    "interactive": false,
+    "auto_remove": false,
+    "hostname": "test-host"
+}

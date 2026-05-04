@@ -334,7 +334,7 @@ class ServerTest extends TestCase
         $userData = ['name' => 'newImage', 'metadata' => ['foo' => 'bar']];
 
         $expectedJson = ['createImage' => $userData];
-        $this->mockRequest('POST', 'servers/serverId/action', new Response(202), $expectedJson);
+        $this->mockRequest('POST', 'servers/serverId/action', new Response(202, [], '{"image_id":""}'), $expectedJson);
 
         $this->server->createImage($userData);
     }
