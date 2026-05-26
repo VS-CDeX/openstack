@@ -16,6 +16,7 @@ class Iterator
     private $markerKey;
     private $mapFn;
     private $currentMarker;
+    private $sentMarkers = [];
 
     public function __construct(array $options, callable $requestFn, callable $resourceFn)
     {
@@ -42,6 +43,10 @@ class Iterator
     {
         if ($this->shouldNotSendAnotherRequest()) {
             return false;
+        }
+
+        if ($this->currentMarker) {
+            $this->sentMarkers[] = $this->currentMarker;
         }
 
         $response = call_user_func($this->requestFn, $this->currentMarker);
@@ -74,12 +79,19 @@ class Iterator
 
     private function totalReached()
     {
-        return $this->limit && $this->count >= $this->limit;
+        return ($this->limit && $this->count >= $this->limit) || $this->markerSent();
     }
 
     private function shouldNotSendAnotherRequest()
     {
-        return $this->totalReached() || ($this->count > 0 && !$this->markerKey);
+        return $this->totalReached()
+            || ($this->count > 0 && !$this->markerKey)
+            || $this->markerSent();
+    }
+
+    private function markerSent()
+    {
+        return $this->currentMarker && in_array($this->currentMarker, $this->sentMarkers);
     }
 
     public function __invoke()

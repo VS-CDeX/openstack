@@ -200,4 +200,14 @@ class OpenStack
 
         return $this->builder->createService('Metric\\v1\\Gnocchi', array_merge($defaults, $options));
     }
+
+    /**
+     * Creates a new Zun Containers service v1.
+     */
+    public function zunContainersV1(array $options = []): Containers\v1\Service
+    {
+        $defaults = ['catalogName' => 'zun', 'catalogType' => 'container'];
+
+        return $this->builder->createService('Containers\\v1', array_merge($defaults, $options));
+    }
 }

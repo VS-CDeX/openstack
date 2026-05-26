@@ -1,0 +1,20 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "containers": [
+        {
+            "uuid": "uuid1",
+            "name": "container1",
+            "image": "ubuntu",
+            "status": "Running"
+        },
+        {
+            "uuid": "uuid2",
+            "name": "container2",
+            "image": "nginx",
+            "status": "Stopped"
+        }
+    ],
+    "next": null
+}

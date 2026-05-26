@@ -34,6 +34,12 @@ do not know how to do this, please follow [these instructions](https://help.gith
 composer install
 ```
 
+Or using Docker Compose:
+
+```bash
+docker compose run -it --rm php sh -c "composer install"
+```
+
 5. Once everything is installed, you're ready to go! If you are working on a new feature, check out a new
 feature brach:
 

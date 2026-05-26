@@ -21,6 +21,7 @@ abstract class AbstractParams
     public const ARRAY_TYPE   = 'array';
     public const NULL_TYPE    = 'NULL';
     public const INT_TYPE     = 'integer';
+    public const FLOAT_TYPE   = 'double';
     public const INTEGER_TYPE = self::INT_TYPE;
 
     public static function isSupportedLocation(string $val): bool

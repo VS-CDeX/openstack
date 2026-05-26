@@ -6,7 +6,7 @@ namespace OpenStack\Common\Api;
 
 abstract class AbstractApi implements ApiInterface
 {
-    protected $params;
+    protected AbstractParams $params;
 
     protected function isRequired(array $param): array
     {
