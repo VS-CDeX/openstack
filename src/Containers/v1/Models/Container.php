@@ -228,6 +228,22 @@ class Container extends OperatorResource implements Creatable, Listable, Retriev
         $this->execute($this->api->resize(), $options);
     }
 
+    public function executeCommand(array $options = []): ContainerExecuteResult
+    {
+        $options['id'] = $this->id;
+        $response      = $this->execute($this->api->execute(), $options);
+
+        return $this->model(ContainerExecuteResult::class)->populateFromResponse($response);
+    }
+
+    public function executeResize(array $options = []): ContainerExecuteResizeResult
+    {
+        $options['id'] = $this->id;
+        $response      = $this->execute($this->api->executeResize(), $options);
+
+        return $this->model(ContainerExecuteResizeResult::class)->populateFromResponse($response);
+    }
+
     public function commit(array $options = []): ContainerImage
     {
         $options['id'] = $this->id;

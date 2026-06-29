@@ -7,6 +7,8 @@ namespace OpenStack\Containers\v1;
 use Generator;
 use OpenStack\Common\Service\AbstractService;
 use OpenStack\Containers\v1\Models\Container;
+use OpenStack\Containers\v1\Models\ContainerExecuteResizeResult;
+use OpenStack\Containers\v1\Models\ContainerExecuteResult;
 use OpenStack\Containers\v1\Models\ContainerImage;
 
 /**
@@ -152,6 +154,32 @@ class Service extends AbstractService
     public function resizeContainer(string $id, array $options = []): void
     {
         $this->getContainer($id)->resize($options);
+    }
+
+    /**
+     * Execute a command in a container.
+     *
+     * @param string $id      the container ID or UUID
+     * @param array  $options {@see Api::executeCommand}
+     */
+    public function executeContainer(string $id, array $options = []): ContainerExecuteResult
+    {
+        return $this->getContainer($id)->executeCommand($options);
+    }
+
+    /**
+     * Resize tty of a container for a given execution ID.
+     *
+     * @param string $id      the container ID or UUID
+     * @param array  $options {@see Api::executeResize}
+     *
+     * @return ContainerExecuteResizeResult Result of a exec resize with Execution ID and websocket URL
+     *
+     * @see Service::executeContainer()
+     */
+    public function executeResizeContainer(string $id, array $options = []): ContainerExecuteResizeResult
+    {
+        return $this->getContainer($id)->executeResize($options);
     }
 
     /**

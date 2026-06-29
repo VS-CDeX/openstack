@@ -457,4 +457,44 @@ class Params extends AbstractParams
             'description' => 'The tag of the container image.',
         ];
     }
+
+    public function command(): array
+    {
+        return [
+            'type'        => self::STRING_TYPE,
+            'location'    => self::QUERY,
+            'required'    => true,
+            'description' => 'The command of the container.',
+        ];
+    }
+
+    public function run(): array
+    {
+        return [
+            'type'        => self::BOOL_TYPE,
+            'location'    => self::QUERY,
+            'required'    => false,
+            'description' => 'Run the command in the container right away.',
+        ];
+    }
+
+    public function interactive(): array
+    {
+        return [
+            'type'        => self::BOOL_TYPE,
+            'location'    => self::QUERY,
+            'required'    => false,
+            'description' => 'Keep STDIN open even if not attached.',
+        ];
+    }
+
+    public function execId(): array
+    {
+        return [
+            'type'        => self::STRING_TYPE,
+            'location'    => self::QUERY,
+            'required'    => true,
+            'description' => 'The ID of the exec session.',
+        ];
+    }
 }

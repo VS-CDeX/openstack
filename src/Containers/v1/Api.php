@@ -186,6 +186,34 @@ class Api extends AbstractApi
         ];
     }
 
+    public function execute(): array
+    {
+        return [
+            'method' => 'POST',
+            'path'   => 'containers/{id}/execute',
+            'params' => [
+                'id'          => $this->params->idPath(),
+                'command'     => $this->params->command(),
+                'run'         => $this->params->run(),
+                'interactive' => $this->params->interactive(),
+            ],
+        ];
+    }
+
+    public function executeResize(): array
+    {
+        return [
+            'method' => 'POST',
+            'path'   => 'containers/{id}/execute_resize',
+            'params' => [
+                'id'      => $this->params->idPath(),
+                'height'  => $this->params->ttyHeight(),
+                'width'   => $this->params->ttyWidth(),
+                'exec_id' => $this->params->execId(),
+            ],
+        ];
+    }
+
     public function commit(): array
     {
         return [
