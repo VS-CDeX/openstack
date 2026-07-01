@@ -471,7 +471,8 @@ class Params extends AbstractParams
     public function run(): array
     {
         return [
-            'type'        => self::BOOL_TYPE,
+            'type'        => self::STRING_TYPE,
+            'enum'        => ['True', 'true', 'False', 'false'],
             'location'    => self::QUERY,
             'required'    => false,
             'description' => 'Run the command in the container right away.',
@@ -481,7 +482,8 @@ class Params extends AbstractParams
     public function interactive(): array
     {
         return [
-            'type'        => self::BOOL_TYPE,
+            'type'        => self::STRING_TYPE,
+            'enum'        => ['True', 'true', 'False', 'false'],
             'location'    => self::QUERY,
             'required'    => false,
             'description' => 'Keep STDIN open even if not attached.',

@@ -149,15 +149,15 @@ class ServiceTest extends TestCase
             'path' => 'containers/container-id/execute',
             'query' => [
                 'command' => 'echo test',
-                'run' => true,
-                'interactive' => false,
+                'run' => 'true',
+                'interactive' => 'false',
             ],
         ], $response);
 
         $result = $this->service->executeContainer('container-id', [
             'command' => 'echo test',
-            'run' => true,
-            'interactive' => false,
+            'run' => 'true',
+            'interactive' => 'false',
         ]);
 
         self::assertSame('command output', $result->output);
@@ -179,15 +179,15 @@ class ServiceTest extends TestCase
             'path' => 'containers/container-id/execute',
             'query' => [
                 'command' => 'bash',
-                'run' => false,
-                'interactive' => true,
+                'run' => 'false',
+                'interactive' => 'true',
             ],
         ], $response);
 
         $result = $this->service->executeContainer('container-id', [
             'command' => 'bash',
-            'run' => false,
-            'interactive' => true,
+            'run' => 'false',
+            'interactive' => 'true',
         ]);
 
         self::assertNull($result->output);
